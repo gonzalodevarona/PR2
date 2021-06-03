@@ -1,0 +1,54 @@
+html{
+    font-family: 'Courier New', Courier, monospace;
+}
+h2{
+    text-transform: uppercase;
+    font-size: large;
+    
+}
+
+.container{
+    display: flex;
+    justify-content: space-evenly;
+    gap: 10px;
+}
+
+
+
+.column{
+    background-color:lightgray;
+    max-width: 100%;
+    width: 400px;
+    padding: 10px;
+    text-align: center;
+}
+
+.btn-add{
+    
+    background-color:cornflowerblue;
+    display: block;
+    width: 50%;
+    padding: 10px 10px;
+    text-align: center;
+    margin: 0 auto;
+    border-radius: 10px;
+    transition: background-color .3s;
+    cursor: pointer;
+    
+}
+
+.btn-add:hover{
+    
+    background-color:darkcyan
+    
+    
+}
+
+.task-area {
+    background-color:white;
+    border-radius: 10px;
+    text-align: left;
+    padding: 10px 50px;
+    margin: 10px;
+}
+
