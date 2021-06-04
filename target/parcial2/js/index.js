@@ -19,6 +19,8 @@ const addNewTask = ()=>{
         xhr.addEventListener('readystatechange', ()=>{
             if(xhr.readyState === 4){
                 console.log(xhr.responseText);
+                getAllTasks();
+                
             }
             
         });
@@ -42,10 +44,7 @@ btnAdd.addEventListener('click', addNewTask);
 
 
 const getAllTasks = ()=>{
-    doContainer.innerHTML = '';
-    doneContainer.innerHTML = '';
-    doingContainer.innerHTML = '';
-
+    
     //GET
     let xhr = new XMLHttpRequest();
 
@@ -54,6 +53,11 @@ const getAllTasks = ()=>{
             let json = xhr.responseText;
             let response = JSON.parse(json);
             console.log(response);
+
+            doContainer.innerHTML = '';
+            doneContainer.innerHTML = '';
+            doingContainer.innerHTML = '';
+
 
             for(let i = 0; i < response.length; i++){
                 let currentTask = response[i];
@@ -75,12 +79,18 @@ getAllTasks();
 
 
 function classify(currentTask, currentView){
+    var element = currentView.render();
+
     if(currentTask.status == "Do"){
-        doContainer.appendChild(currentView.render())
+        doContainer.appendChild(element);
+
     } else if(currentTask.status == "Done"){
-        doneContainer.appendChild(currentView.render());
+        console.log(element);
+        doneContainer.appendChild(element);
+
     } else{
-        doingContainer.appendChild(currentView.render())
+        console.log(element);
+        doingContainer.appendChild(element)
     }
     
 

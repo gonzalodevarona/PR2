@@ -23,6 +23,53 @@ class TaskView{
     }
 
 
+    taskGoRight = ()=>{
+
+        if(this.task.status === 'Do'){
+            this.task.status = 'Doing';
+        } else if(this.task.status === 'Done'){
+            this.task.status = 'Do';
+        }
+        
+        let xhr = new XMLHttpRequest();
+
+        xhr.addEventListener('readystatechange', ()=>{
+            if(xhr.readyState === 4){
+                if(this.onDeleteFinish !== null){
+                    this.onDeleteFinish();
+                }
+            }
+            
+        });
+        xhr.open('PUT', '/parcial2_war/api/tasks/updateTask');
+        xhr.setRequestHeader('Content-type', 'application/json');
+        xhr.send( JSON.stringify(this.task) );
+    }
+
+    taskGoLeft = ()=>{
+
+        if(this.task.status === 'Do'){
+            this.task.status = 'Done';
+        } else if(this.task.status === 'Doing'){
+            this.task.status = 'Do';
+        }
+        
+        let xhr = new XMLHttpRequest();
+
+        xhr.addEventListener('readystatechange', ()=>{
+            if(xhr.readyState === 4){
+                if(this.onDeleteFinish !== null){
+                    this.onDeleteFinish();
+                }
+            }
+            
+        });
+        xhr.open('PUT', '/parcial2_war/api/tasks/updateTask');
+        xhr.setRequestHeader('Content-type', 'application/json');
+        xhr.send( JSON.stringify(this.task) );
+    }
+
+
     render = () =>{
         let component = document.createElement('div');
         component.className = 'task-area';
@@ -71,6 +118,8 @@ class TaskView{
         //EVENTS FOR NEW BUTTONS
 
         close.addEventListener('click', this.deleteTask);
+        right.addEventListener('click', this.taskGoRight);
+        left.addEventListener('click', this.taskGoLeft);
         
 
         
