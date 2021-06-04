@@ -79,19 +79,23 @@ getAllTasks();
 
 
 function classify(currentTask, currentView){
+
     var element = currentView.render();
+    var rightBtn = element.getElementsByClassName('right-btn');
+    var leftBtn = element.getElementsByClassName('left-btn');
 
     if(currentTask.status == "Do"){
         doContainer.appendChild(element);
 
     } else if(currentTask.status == "Done"){
-        console.log(element);
+        leftBtn[0].style.visibility = 'hidden';
         doneContainer.appendChild(element);
 
     } else{
-        console.log(element);
+        rightBtn[0].style.visibility = 'hidden';
         doingContainer.appendChild(element)
     }
     
 
 }
+
