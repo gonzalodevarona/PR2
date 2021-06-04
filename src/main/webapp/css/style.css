@@ -50,5 +50,43 @@ h2{
     text-align: left;
     padding: 10px 50px;
     margin: 10px;
+
+    position: relative;
+}
+
+/* BUTTONS FOR CARDS */
+
+.btn{
+    border-radius: 10px;
+    
+}
+
+.btn:hover{
+    
+   opacity: 0.6;
+    
+    
+}
+
+.close-btn{
+    position: absolute;
+    background-color:crimson;
+    border: none;
+
+    right: 52px;
+    top: 11px;
+}
+
+.right-btn{
+    background-color:blanchedalmond;
+}
+
+.left-btn{
+    background-color: blanchedalmond;
+}
+
+.btns-container{
+    display: flex;
+    justify-content: space-between;
 }
 
